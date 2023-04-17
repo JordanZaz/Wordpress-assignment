@@ -15,6 +15,7 @@ Finally, a Gutenberg block needs to be developed that calls the API of one WordP
 To run the code, follow these steps:
 
 Clone this repository and navigate to the project directory.
+Make sure to npm install, npm run build.
 Set up two instances of WordPress using the provided Docker image or the default WordPress Docker image.
 Activate the custom WordPress theme and install it on both WordPress environments.
 Install the plugin that exposes the secured API and install it on both WordPress environments.
@@ -26,7 +27,9 @@ Test the Gutenberg block to ensure that it calls the API of the other WordPress 
 The following resources were used to develop this solution:
 
 WordPress documentation: https://wordpress.org/support/
+
 Gutenberg documentation: https://developer.wordpress.org/block-editor/
+
 OAuth2 documentation: https://oauth.net/2/
 
 ## Credits
