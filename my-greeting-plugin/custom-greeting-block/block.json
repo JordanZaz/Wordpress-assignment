@@ -1,0 +1,17 @@
+{
+    "apiVersion": 2,
+    "name": "my-custom-greeting-block/greeting",
+    "title": "Custom Greeting Block",
+    "icon": "smiley",
+    "category": "common",
+    "attributes": {
+        "greeting": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "editorScript": "file:./build/index.js",
+    "supports": {
+        "html": false
+    }
+}

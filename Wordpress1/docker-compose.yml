@@ -1,0 +1,58 @@
+version: '3.1'
+
+services:
+  wordpress1:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db1
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER1}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD1}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME1}
+    volumes:
+      - wordpress1:/var/www/html
+      - ./themes/ibl-theme:/var/www/html/wp-content/themes/ibl-theme
+
+  db1:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME1}
+      MYSQL_USER: ${WORDPRESS_DB_USER1}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD1}
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db1:/var/lib/mysql
+
+  wordpress2:
+    image: wordpress
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      WORDPRESS_DB_HOST: db2
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER2}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD2}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME2}
+    volumes:
+      - wordpress2:/var/www/html
+      - ./themes/ibl-theme:/var/www/html/wp-content/themes/ibl-theme
+
+  db2:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME2}
+      MYSQL_USER: ${WORDPRESS_DB_USER2}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD2}
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db2:/var/lib/mysql
+
+volumes:
+  wordpress1:
+  db1:
+  wordpress2:
+  db2:
